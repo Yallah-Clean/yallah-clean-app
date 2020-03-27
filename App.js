@@ -1,12 +1,29 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
+import * as Font from 'expo-font'
+import { AppLoading } from 'expo'
+const getFotns=()=>Font.loadAsync({
+  "rosario-italic":require("./assets/fonts/Rosario-Italic-VariableFont_wght.ttf"),
+  "rosario":require("./assets/fonts/Rosario-VariableFont_wght.ttf"),
+});
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+  if(fontsLoaded){
+    return (
+      <View style={styles.container}>
+        <Text style={styles.textItem}>Open up App.js to start working on your app!</Text>
+      </View>
+    );
+  }else{
+    return (
+     <AppLoading
+    startAsync={getFotns}
+    onFinish={()=>setFontsLoaded(true)}
+     
+     />
+    );
+  }
+
 }
 
 const styles = StyleSheet.create({
@@ -16,4 +33,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  textItem:{
+    fontFamily:'rosario',
+
+  }
 });
