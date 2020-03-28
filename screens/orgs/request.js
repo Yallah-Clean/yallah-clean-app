@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-const Request = () => {
+const OrgRequest = () => {
     return (
         <View>
             <Text>Request View</Text>
@@ -9,6 +9,6 @@ const Request = () => {
     )
 }
 
-export default Request
+export default OrgRequest
 
 const styles = StyleSheet.create({})
