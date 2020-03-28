@@ -7,39 +7,28 @@ import Login from '../screens/auth/login';
 import RegisterType from '../screens/auth/registerType';
 import ResidnetRegister from '../screens/auth/residnetRegister';
 import CollectorRegister from '../screens/auth/collectorRegister';
+import Options from './routingOptions'
 
 // import Home as CollectorHome from '../screens/collector/home';
 const Stack = createStackNavigator();
 
-const   options= (title)=>{
-    return ({
-        title: title,
-        headerStyle: {
-          backgroundColor: '#A2BEAA',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-      })
-}
 
 // Route stack navigator screens
-const AuthStack=()=>{
+const AuthStack=({navigation})=>{
 
     return (
         <Stack.Navigator initialRouteName="Login">
       
-          <Stack.Screen name="Login" component={Login}>
+          <Stack.Screen name="Login" component={Login} options={()=>Options(navigation,"Login")}>
             
           </Stack.Screen>
-          <Stack.Screen name="Type" component={RegisterType}>
+          <Stack.Screen name="Type" component={RegisterType} options={()=>Options(navigation,"Select Type")}>
 
           </Stack.Screen>
-          <Stack.Screen name="CollectorRegister" component={CollectorRegister}>
+          <Stack.Screen name="CollectorRegister" component={CollectorRegister} options={()=>Options(navigation,"Register")}>
 
           </Stack.Screen>
-          <Stack.Screen name="ResidnetRegister" component={ResidnetRegister}>
+          <Stack.Screen name="ResidnetRegister" component={ResidnetRegister} options={()=>Options(navigation,"Register")}>
 
           </Stack.Screen>
        
