@@ -1,5 +1,11 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  ScrollView,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from 'react-native';
 import Card from '../../shared/card';
 import Thumbnail from '../../shared/thumbnail';
 import HyperLink from '../../shared/hyperlink';
@@ -10,7 +16,7 @@ import UserFactoryService from '../../service/UserFactory.js';
 import Web3Service from '../../service/web3.service.js';
 import LocalStorageService from '../../service/core/LocalStorage.service';
 
-const factoryAddress = '0x45e00820163F3d1bb6Df0781666d90b4B29C26c9';
+const factoryAddress = '0xf3FB48AA114E03e28b7C2bdFD363014E9D1F56DA';
 const ResidnetRegister = ({navigation}) => {
   const Url = require('../../assets/images/logo2.jpg');
 
@@ -23,18 +29,21 @@ const ResidnetRegister = ({navigation}) => {
     value.ethAddress = address.address;
     value.privateKey = address.privateKey;
     const factory = new UserFactoryService(address.privateKey);
+    // const address = await web3Service.getAccountByIndex(2);
+    //   value.ethAddress= address;
+
     // const factory = new UserFactoryService();
-    console.log(factory, 'factory');
+    console.log(value, 'value');
 
     const tx = await factory.addResident(
       value.ethAddress,
-      value.ethAddress,
+      '0xecE015E844CeB9CE76fd447468C29987fE01d6BE',
       2000000000,
       factoryAddress,
     );
     //   console.log(tx,'tx');
 
-    // const tx=  await factory. addResidentSigned( state.ethAddress,  state.ethAddress,  state.privateKey, 2000000000,factoryAddress)
+    // const tx=  await factory. addResidentSigned( value.ethAddress,  "0xecE015E844CeB9CE76fd447468C29987fE01d6BE",  "0xeb235ccf4e331a907fb9aa1e7631bc9245936e93e392f41ac5858f521901e875", 2000000000,factoryAddress)
     console.log(tx, 'tx');
     if (tx) {
       // save to off chain storage
@@ -43,26 +52,32 @@ const ResidnetRegister = ({navigation}) => {
       const storage = new LocalStorageService();
       await storage.setUser(value);
       console.log(value);
-      console.log(props, 'props');
 
       //Api.registerRes( state)
     }
   };
+
   return (
-    <View style={globalStyles.container}>
-      <Thumbnail source={Url} />
-      <Card>
-        {/* <Image source={Url}  /> */}
+    <ScrollView
+      contentInsetAdjustmentBehavior="automatic"
+      style={globalStyles.scrollView}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={globalStyles.container}>
+          <Thumbnail source={Url} />
+          <Card>
+            {/* <Image source={Url}  /> */}
 
-        <ResidentRegisterForm register={handleRegister} />
+            <ResidentRegisterForm register={handleRegister} />
 
-        <HyperLink
-          goToURL={() => navigation.navigate('Auth')}
-          title={'Login?'}
-          style={styles.hyperLink}
-        />
-      </Card>
-    </View>
+            <HyperLink
+              goToURL={() => navigation.navigate('Auth')}
+              title={'Login?'}
+              style={styles.hyperLink}
+            />
+          </Card>
+        </View>
+      </TouchableWithoutFeedback>
+    </ScrollView>
   );
 };
 
