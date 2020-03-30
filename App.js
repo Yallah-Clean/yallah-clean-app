@@ -1,36 +1,82 @@
-import React,{useState} from 'react';
-import { StatusBar } from 'react-native';
-import * as Font from 'expo-font';
-import {GlobalStyles} from './constants/globalStyles';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ */
+import 'react-native-gesture-handler';
+import './shims';
+import React from 'react';
+import {
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  StatusBar,
+  Button,
+  View,
+} from 'react-native';
+
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Navigator from './routes/drawerStack';
-import { AppLoading } from 'expo';
 
-const getFotns=()=>Font.loadAsync({
-  "rosario-italic":require("./assets/fonts/Rosario-Italic-VariableFont_wght.ttf"),
-  "rosario":require("./assets/fonts/Rosario-VariableFont_wght.ttf"),
+
+const App: () => React$Node = () => {
+  // const [fontsLoaded, setFontsLoaded] = useState(false);
+  // if (fontsLoaded) {
+  return (
+    <>
+      <StatusBar barStyle="dark-content" />
+      <Navigator /> 
+      <SafeAreaView>
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={styles.scrollView}>
+          {/* <Header /> */}
+          {/* <Navigator /> */}
+        </ScrollView>
+      </SafeAreaView>
+    </>
+  );
+};
+
+const styles = StyleSheet.create({
+  scrollView: {
+    backgroundColor: Colors.lighter,
+  },
+  engine: {
+    position: 'absolute',
+    right: 0,
+  },
+  body: {
+    backgroundColor: Colors.white,
+  },
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+    color: Colors.black,
+  },
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '400',
+    color: Colors.dark,
+  },
+  highlight: {
+    fontWeight: '700',
+  },
+  footer: {
+    color: Colors.dark,
+    fontSize: 12,
+    fontWeight: '600',
+    padding: 4,
+    paddingRight: 12,
+    textAlign: 'right',
+  },
 });
-export default function App() {
-  const [fontsLoaded, setFontsLoaded] = useState(false);
-  if(fontsLoaded){
 
-    return (
-      <React.Fragment>
-      <StatusBar barStyle="light-content" />
-      <Navigator/>
-     
-     
-      </React.Fragment>
-
-    );
-  }else{
-    return (
-     <AppLoading
-    startAsync={getFotns}
-    onFinish={()=>setFontsLoaded(true)}
-     
-     />
-    );
-  }
-
-}
-
+export default App;

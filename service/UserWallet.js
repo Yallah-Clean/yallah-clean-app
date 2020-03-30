@@ -1,6 +1,6 @@
 
 import web3 from 'web3';
-import contract from '@truffle/contract';
+import contract from 'truffle-contract';
 
 import contractArtifact from '../assets/contracts/UserWallet.json';
 const provider = require('./web3.endpoint.js');

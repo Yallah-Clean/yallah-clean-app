@@ -1,7 +1,7 @@
 
 import web3 from 'web3';
-import contract from '@truffle/contract';
-const PrivateKeyProvider = require("@truffle/hdwallet-provider");
+import contract from 'truffle-contract';
+const PrivateKeyProvider = require("truffle-hdwallet-provider");
 
 import contractArtifact from '../assets/contracts/OrgRegistry.json';
 const provider = require('./web3.endpoint.js');
