@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+// import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Header({ title, navigation }) {
 
@@ -10,7 +10,7 @@ export default function Header({ title, navigation }) {
 
   return (
     <View style={styles.header}>
-      <MaterialIcons name='menu' size={28} onPress={openMenu} style={styles.icon} />
+      {/* <MaterialIcons name='menu' size={28} onPress={openMenu} style={styles.icon} /> */}
       <View style={styles.headerTitle}>
         <Image source={require('../assets/images/logo.png')} style={styles.headerImage} />
         {/* <Text style={styles.headerText}>{title}</Text> */}
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   headerImage: {
     width: 76,
-   left: 40,
+  //  left: 40,
     height: 56,
     marginHorizontal: 10
   },

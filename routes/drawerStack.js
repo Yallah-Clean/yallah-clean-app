@@ -13,7 +13,7 @@ const Drawer = createDrawerNavigator();
 const Navigator = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Main">
+      <Drawer.Navigator initialRouteName="Auth">
         <Drawer.Screen name="Main" children={MainStack} />
         <Drawer.Screen name="Auth" children={AuthStack} />
       </Drawer.Navigator>
