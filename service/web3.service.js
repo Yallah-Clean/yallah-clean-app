@@ -1,24 +1,21 @@
 import web3 from 'web3';
 const provider = require('./web3.endpoint.js');
 
-
 export default class Web3Service {
-
   // net = new Web3Net('ws://172.27.150.7:22000');
   constructor() {
-    this.web3Provider = new web3.providers.HttpProvider(provider.webProvider );
-      
-      this.web3 = new web3(this.web3Provider);
-      this.accounts=[];
-      this. account="";
-        }
-       
+    this.web3Provider = new web3.providers.HttpProvider(provider.webProvider);
+
+    this.web3 = new web3(this.web3Provider);
+    this.accounts = [];
+    this.account = '';
+  }
 
   async getCurrentAccount() {
     this.accounts = await this.web3.eth.getAccounts();
     if (this.accounts.length === 0) {
       alert(
-        `Couldn't get any accounts! Make sure your Ethereum client is configured correctly.`
+        "Couldn't get any accounts! Make sure your Ethereum client is configured correctly.",
       );
       return;
     }
@@ -29,8 +26,8 @@ export default class Web3Service {
     return this.account;
   }
   async createAccount(passpword) {
-    console.log(this.web3.eth.accounts,'test');
-    
+    console.log(this.web3.eth.accounts, 'test');
+
     const newAccount = await this.web3.eth.accounts.create(passpword);
     // const newAccount = await this.web3.eth.personal.newAccount(passpword);
     console.log(newAccount, 'newAccount');
@@ -57,7 +54,7 @@ export default class Web3Service {
       return await this.web3.eth.personal.unlockAccount(
         address,
         pasword,
-        unlock_duration_sec
+        unlock_duration_sec,
       );
     }
   }
@@ -79,7 +76,7 @@ export default class Web3Service {
       const tx = await this.web3.eth.sendTransaction({
         from: account,
         to: account,
-        value: 0
+        value: 0,
       });
       console.log(tx, 'tx');
 
@@ -103,5 +100,4 @@ export default class Web3Service {
     }
     return true;
   }
-
 }

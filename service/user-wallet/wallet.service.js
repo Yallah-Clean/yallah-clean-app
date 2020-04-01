@@ -2,7 +2,6 @@ const keythereum = require('keythereum');
 // const FileSaver = require('file-saver');
 const fs = require('fs');
 
-
 export default class WalletService {
   constructor() {
     console.log('Hello UserServiceProvider Provider');
@@ -31,7 +30,10 @@ export default class WalletService {
   generateKeys(cb) {
     // optional private key and initialization vector sizes in bytes
     // (if params is not passed to create, keythereum.constants is used by default)
-    const params = { keyBytes: 32, ivBytes: 16 };
+    const params = {
+      keyBytes: 32,
+      ivBytes: 16,
+    };
 
     // Using a Promise
     keythereum.create(params, cb);
@@ -60,8 +62,8 @@ export default class WalletService {
       kdfparams: {
         c: 262144,
         dklen: 32,
-        prf: 'hmac-sha256'
-      }
+        prf: 'hmac-sha256',
+      },
     };
     keythereum.dump(password, dk.privateKey, dk.salt, dk.iv, options, cb);
     // keythereum.dump(password, dk.privateKey, dk.salt, dk.iv, options)

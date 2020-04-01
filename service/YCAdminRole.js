@@ -1,86 +1,71 @@
-
 import web3 from 'web3';
 import contract from 'truffle-contract';
 
 import contractArtifact from '../assets/contracts/YCAdminRole.json';
 const provider = require('./web3.endpoint.js');
 
-export default class YCAdminRoleService{
+export default class YCAdminRoleService {
+  constructor() {
+    this.web3Provider = new web3.providers.HttpProvider(provider.webProvider);
 
-constructor() { 
+    this.web3 = new web3(this.web3Provider);
 
-this.web3Provider = new Web3.providers.HttpProvider(provider.webProvider);
+    this.initContract().then(s => {});
+  }
 
+  async initContract() {
+    this.service = contract(contractArtifact);
 
-this.web3 = new web3(this.web3Provider);
+    this.service.setProvider(this.web3Provider);
+  }
 
-this.initContract().then(s => {});
+  async isYCAdmin(account) {
+    const instance = await this.service.deployed();
 
-}
+    const data = await instance.isYCAdmin.call(account);
 
-async initContract() {
+    return data;
+  }
+  async addYCAdmin(account, _from, _gas) {
+    const instance = await this.service
+      .deployed()
 
-this.service = contract(contractArtifact);
+      .then(async _instance => {
+        return await _instance.addYCAdmin(account, {
+          from: _from,
+          gas: _gas,
+        });
+      })
 
-this.service.setProvider(this.web3Provider);
+      .then(res => {
+        return res;
+      })
 
-}
+      .catch(e => {
+        console.log(e);
+      });
 
+    return instance;
+  }
+  async renounceYCAdmin(_from, _gas) {
+    const instance = await this.service
+      .deployed()
 
-  async isYCAdmin(account){
+      .then(async _instance => {
+        return await _instance.renounceYCAdmin({
+          from: _from,
+          gas: _gas,
+        });
+      })
 
- const instance = await this.service.deployed(); 
+      .then(res => {
+        return res;
+      })
 
- const data = await instance.isYCAdmin.call(account);
+      .catch(e => {
+        console.log(e);
+      });
 
-return data;
-
-}
-  async addYCAdmin(account,_from,_gas){
-
- const instance = await this.service.deployed()
-
- .then( async _instance => {
- return await  _instance. addYCAdmin(account,{ from:_from, gas: _gas  });  })
- 
- .then(res => {
- 
-   return res;
- 
-    })
- 
- .catch(e => {
- 
-   console.log(e);
- 
-    });
- 
-   return instance;
- 
- 
- }
-  async renounceYCAdmin(_from,_gas){
-
- const instance = await this.service.deployed()
-
- .then( async _instance => {
- return await  _instance. renounceYCAdmin({ from:_from, gas: _gas  });  })
- 
- .then(res => {
- 
-   return res;
- 
-    })
- 
- .catch(e => {
- 
-   console.log(e);
- 
-    });
- 
-   return instance;
- 
- 
- }
-
+    return instance;
+  }
 }
