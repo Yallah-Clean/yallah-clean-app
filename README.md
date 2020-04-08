@@ -124,3 +124,4 @@ collector receives a notification for the status update
    -  npm run android 
   
   make sure you have android emulator 
+- Due to an issue in `truffle`  you need to add `"networkType": "ethereum",` to all contracts artifacts which is not migrated , if you are using vscode you can search for `"networks": {},` and replace it with `"networks": {},  "networkType": "ethereum",` to fix this issue . you can read more about the issue here where we have reported https://github.com/trufflesuite/truffle/issues/2903
