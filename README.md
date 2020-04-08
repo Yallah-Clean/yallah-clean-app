@@ -116,16 +116,18 @@ collector receives a notification for the status update
   
 # How to use
 -----------------
-- ganache-cli  in a single terminal
-- truffle migrate  in a single terminal
--  in a single terminal cd client 
-   -  npm install 
-   -  npm start 
+- in a single terminal `ganache-cli`  
+- in a single terminal run `npm install ` then `truffle migrate`  
+-  in a single terminal `cd client` 
+   -  `npm install` 
+   -  `npm start `
 -  in a single terminal in  client folder  
-   -  npm run android 
+   - ` npm run android `
   
   make sure you have android emulator 
+  -    make sure that your adb open tcp:8545 so that it can communicate with blockchain  by running `adb reverse tcp:8545 tcp:8545`
 - Due to an issue in `truffle`  you need to add `"networkType": "ethereum",` to all contracts artifacts which is not migrated , if you are using vscode you can search for `"networks": {},` and replace it with `"networks": {},  "networkType": "ethereum",` to fix this issue . you can read more about the issue here where we have reported https://github.com/trufflesuite/truffle/issues/2903
+
   # Team
 -----------------
 - Eman Herawy 
