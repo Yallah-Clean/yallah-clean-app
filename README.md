@@ -116,15 +116,16 @@ collector receives a notification for the status update
   
 # How to use
 -----------------
-- ganache-cli  in a single terminal
-- truffle migrate  in a single terminal
--  in a single terminal cd client 
-   -  npm install 
-   -  npm start 
+- in a single terminal `ganache-cli`  
+- in a single terminal run `npm install ` then `truffle migrate`  
+-  in a single terminal `cd client` 
+   -  `npm install` 
+   -  `npm start `
 -  in a single terminal in  client folder  
-   -  npm run android 
+   - ` npm run android `
   
-  make sure you have android emulator 
+  - make sure you have android emulator 
+    make sure that your adb open tcp:8545 so that it can communicate with blockchain  by running `adb reverse tcp:8545 tcp:8545`
   # Team
 -----------------
 - Eman Herawy 
