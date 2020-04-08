@@ -1,6 +1,7 @@
 
 # Yallah Clean
 ====================================================
+
 Overview 
 ---------
 Yallah clean is a  new innovation model for on-demand service for waste collection cycle based on blockchain via engaging all stakeholders in a trusted, traceable & win-win model.
@@ -124,3 +125,8 @@ collector receives a notification for the status update
    -  npm run android 
   
   make sure you have android emulator 
+  # Team
+-----------------
+- Eman Herawy 
+- Ahmed AW
+- Mohand Khaled
