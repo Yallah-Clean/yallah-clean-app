@@ -1213,10 +1213,310 @@
       "links": {},
       "address": "0x31b44B24Fd24a02a7a3CD5ddbFD0e4bAb3e884A0",
       "transactionHash": "0x20d4d369d4a3a55afdcd14043de1b7603abb82f14a5d9825686182a2fb181cfa"
+    },
+    "1585960519156": {
+      "events": {
+        "0x6ae172837ea30b801fbfcdd4108aa1d5bf8ff775444fd70256b44e6bf3dfc3f6": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "MinterAdded",
+          "type": "event"
+        },
+        "0xe94479a9f7e1952cc78f2d6baab678adc1b772d936c6583def489e524cb66692": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "MinterRemoved",
+          "type": "event"
+        },
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event"
+        },
+        "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Approval",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x0ede788f8087b1f64563c31E9e0B2bFac96c29cB",
+      "transactionHash": "0x8503e8740e023664ded411e9162a72d71c6ffb4fadb512432403a8a74a4e0077"
+    },
+    "1586053096510": {
+      "events": {
+        "0x6ae172837ea30b801fbfcdd4108aa1d5bf8ff775444fd70256b44e6bf3dfc3f6": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "MinterAdded",
+          "type": "event"
+        },
+        "0xe94479a9f7e1952cc78f2d6baab678adc1b772d936c6583def489e524cb66692": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "MinterRemoved",
+          "type": "event"
+        },
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event"
+        },
+        "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Approval",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x7A41557De544a7eebE1281b702EE9898C241DEcf",
+      "transactionHash": "0xcee056def430692533403ad994953303c72bf5dc40b5c796dab215ae3431d60c"
+    },
+    "1586221391548": {
+      "events": {
+        "0x6ae172837ea30b801fbfcdd4108aa1d5bf8ff775444fd70256b44e6bf3dfc3f6": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "MinterAdded",
+          "type": "event"
+        },
+        "0xe94479a9f7e1952cc78f2d6baab678adc1b772d936c6583def489e524cb66692": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "MinterRemoved",
+          "type": "event"
+        },
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event"
+        },
+        "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Approval",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x0111e136a7eD17f672d99EBA181fE77aEd186437",
+      "transactionHash": "0x2be6da4d4771460ecc300dbfe3f7390592982853fedddf70b046d019a6e367c4"
+    },
+    "1586332480269": {
+      "events": {
+        "0x6ae172837ea30b801fbfcdd4108aa1d5bf8ff775444fd70256b44e6bf3dfc3f6": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "MinterAdded",
+          "type": "event"
+        },
+        "0xe94479a9f7e1952cc78f2d6baab678adc1b772d936c6583def489e524cb66692": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "account",
+              "type": "address"
+            }
+          ],
+          "name": "MinterRemoved",
+          "type": "event"
+        },
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Transfer",
+          "type": "event"
+        },
+        "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "name": "spender",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "name": "Approval",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xF1C24082d7123f4E99f0cB820Bc4Df8A5Be836B3",
+      "transactionHash": "0x323be98d4d01772b8d3db17f0ad9594c2fbf57611aba3b94d66cd9d716901b47"
     }
   },
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-04-03T21:53:11.350Z",
+  "updatedAt": "2020-04-08T08:01:10.182Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {

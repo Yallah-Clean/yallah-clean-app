@@ -1,27 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {Thumbnail} from 'native-base';
 // import { MaterialIcons } from '@expo/vector-icons';
 
-export default function Header({ title, navigation }) {
+export default function Header({title, navigation}) {
+  const url = require('../assets/images/profile.jpeg');
+console.log(navigation,'navigation');
 
   const openMenu = () => {
     navigation.openDrawer();
-  }
+  };
 
   return (
-    <View style={styles.header}>
-      {/* <MaterialIcons name='menu' size={28} onPress={openMenu} style={styles.icon} /> */}
-      <View style={styles.headerTitle}>
-        <Image source={require('../assets/images/logo.png')} style={styles.headerImage} />
-        {/* <Text style={styles.headerText}>{title}</Text> */}
-      </View>
+   <TouchableOpacity onPress={openMenu}>
+         <View style={styles.header}>
+
+     <Thumbnail source={url} style={styles.imageFrame} />
+
+      <Text style={styles.headerText}> {title} </Text>
+
     </View>
+    </TouchableOpacity> 
+
   );
 }
 
 const styles = StyleSheet.create({
   header: {
-    width: '100%',
+    flex:1,
+    width: '250%',
     height: '100%',
     flexDirection: 'row',
     alignItems: 'center',
@@ -30,21 +37,34 @@ const styles = StyleSheet.create({
   headerText: {
     fontWeight: 'bold',
     fontSize: 20,
-
-    color: '#333',
+    color: '#2ACF3B',
     letterSpacing: 1,
   },
-  icon: {
+  imageFrame: {
+    width: '25%',
+    // flex: 1,
+
+    borderRadius: 90,
+    borderColor: '#2ACF3B',
+    // top: '-30%',
     position: 'absolute',
-    left: 16,
+    left: 6,
+    alignItems: 'center',
+    resizeMode: 'contain',
   },
-  headerTitle: {
-    flexDirection: 'row'
-  },
-  headerImage: {
-    width: 76,
-  //  left: 40,
-    height: 56,
-    marginHorizontal: 10
-  },
+  // icon: {
+  //   position: 'absolute',
+  //   left: 16,
+  // },
+  // headerTitle: {
+  //   flexDirection: 'row',
+  //   alignContent:"center",
+
+  // },
+  // headerImage: {
+  //   width: 76,
+  // //  left: 40,
+  //   height: 56,
+  //   marginHorizontal: 10
+  // },
 });

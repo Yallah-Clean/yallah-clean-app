@@ -20,7 +20,7 @@ const App: () => React$Node = () => {
   // if (fontsLoaded) {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#2ACF3B" translucent = {true}/>
 
       <Navigator />
 

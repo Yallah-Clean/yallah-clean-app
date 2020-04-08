@@ -1,50 +1,53 @@
 import React from 'react';
 import {
-  StyleSheet,
   TouchableWithoutFeedback,
-  Keyboard,
-  View,
+  Keyboard,TouchableOpacity,StyleSheet,
 } from 'react-native';
 import LoginForm from '../../components/loginForm';
-import Card from '../../shared/card';
-import Thumbnail from '../../shared/thumbnail';
-import HyperLink from '../../shared/hyperlink';
 import {globalStyles} from '../../styles/global';
-import LocalStorageService from '../../service/core/LocalStorage.service';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { Card, CardItem, Text } from 'native-base';
+
 const Login = ({navigation}) => {
-  const Url = require('../../assets/images/icon.png');
 
   const handleLogin = async value => {
-    const storage = new LocalStorageService();
-    let user = await storage.getUser();
+    // const storage = new LocalStorageService();
+    // let user = await storage.getUser();
 
-    console.log(value, 'value');
-    console.log(navigation, 'navigation');
+  
 
-    if (value.email == user.email && value.password == user.password) {
+    if (value.email == 'collector@test.com' && value.password == 'Pa$$w0rd') {
+      navigation.navigate('Main');
+    }
+    if (value.email == 'resident@test.com' && value.password == 'Pa$$w0rd') {
       navigation.navigate('Main');
     } else if (value.email == 'org@test.com' && value.password == '123') {
       navigation.navigate('Main');
     }
   };
   return (
+    <KeyboardAwareScrollView
+    // contentInsetAdjustmentBehavior="automatic"
+    style={globalStyles.scrollView}>
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={globalStyles.container}>
-        <Thumbnail source={Url} />
-        <Card>
-          {/* <Image source={Url}  /> */}
-
+    <Card style={{flex:1}}>
+          
+          <CardItem bordered>
           <LoginForm login={handleLogin} />
+
+          </CardItem>
+          <CardItem footer bordered>
+<TouchableOpacity>
+
+<Text style={styles.hyperLink} onPress={ ()=> navigation.navigate('Type')}>Don’t have an account? Signup now!</Text> 
+
+</TouchableOpacity>
+          </CardItem>
         </Card>
-        <View style={globalStyles.sectionContainer}>
-          <HyperLink
-            goToURL={() => navigation.navigate('Type')}
-            title={'Register?'}
-            style={styles.hyperLink}
-          />
-        </View>
-      </View>
+
     </TouchableWithoutFeedback>
+    </KeyboardAwareScrollView>
+ 
   );
 };
 
@@ -52,6 +55,9 @@ export default Login;
 
 const styles = StyleSheet.create({
   hyperLink: {
-    // left:55,
-  },
+    fontWeight: 'bold',
+     textAlign: 'center',
+
+    color: '#2ACF3B',
+    letterSpacing: 1,  },
 });

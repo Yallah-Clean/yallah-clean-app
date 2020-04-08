@@ -1,15 +1,15 @@
 import React from 'react';
 
-import Header from '../shared/header';
+import HeaderView from '../shared/header';
 
 const Options = (navigation, title) => {
   return {
     headerTitle: () => {
-      return <Header title={title} navigation={navigation} />;
+      return <HeaderView title={title} navigation={navigation} />;
     },
-    // defaultNavigationOptions: {
-    //   header: null,
-    // },
+    defaultNavigationOptions: {
+      header: null,
+    },
     headerLeft: null,
 
     // headerStyle: {

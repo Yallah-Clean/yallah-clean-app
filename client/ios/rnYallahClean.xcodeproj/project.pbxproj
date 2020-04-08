@@ -18,6 +18,8 @@
 		2DCD954D1E0B4F2C00145EB5 /* rnYallahCleanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* rnYallahCleanTests.m */; };
 		DF3D17FA4A8F47B49F6A440B /* Rosario-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03B78DDF66C14A8CBE75F98B /* Rosario-Italic-VariableFont_wght.ttf */; };
 		4E3A4D2994E04EF48CEDA0FA /* Rosario-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA45D35EDFE048F783CDF8B1 /* Rosario-VariableFont_wght.ttf */; };
+		028ED812922B48D2B29B8D0B /* libRNCookieManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F831728AD5A14F0095082D75 /* libRNCookieManager.a */; };
+		4A9A51879E0B4D02B4EE91C2 /* RNCookieManagerTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 5E8D28FF010F43AC9D3C0F7F /* RNCookieManagerTests.xctest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,9 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		03B78DDF66C14A8CBE75F98B /* Rosario-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "Rosario-Italic-VariableFont_wght.ttf"; path = "../assets/fonts/Rosario-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		AA45D35EDFE048F783CDF8B1 /* Rosario-VariableFont_wght.ttf */ = {isa = PBXFileReference; name = "Rosario-VariableFont_wght.ttf"; path = "../assets/fonts/Rosario-VariableFont_wght.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BE9C2C4F34FC4DF78501F857 /* RNCookieManager.xcodeproj */ = {isa = PBXFileReference; name = "RNCookieManager.xcodeproj"; path = "../node_modules/react-native-cookie/ios/RNCookieManager.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		F831728AD5A14F0095082D75 /* libRNCookieManager.a */ = {isa = PBXFileReference; name = "libRNCookieManager.a"; path = "libRNCookieManager.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		5E8D28FF010F43AC9D3C0F7F /* RNCookieManagerTests.xctest */ = {isa = PBXFileReference; name = "RNCookieManagerTests.xctest"; path = "RNCookieManagerTests.xctest"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.cfbundle; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028ED812922B48D2B29B8D0B /* libRNCookieManager.a in Frameworks */,
+				4A9A51879E0B4D02B4EE91C2 /* RNCookieManagerTests.xctest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +139,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				BE9C2C4F34FC4DF78501F857 /* RNCookieManager.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -483,6 +491,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rnYallahClean.app/rnYallahClean";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-cookie/ios",
+				);
 			};
 			name = Debug;
 		};
@@ -502,6 +519,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rnYallahClean.app/rnYallahClean";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-cookie/ios",
+				);
 			};
 			name = Release;
 		};
@@ -528,6 +554,10 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-cookie/ios",
+				);
 			};
 			name = Debug;
 		};
@@ -548,6 +578,10 @@
 				PRODUCT_NAME = rnYallahClean;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-cookie/ios",
+				);
 			};
 			name = Release;
 		};
@@ -575,6 +609,15 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-cookie/ios",
+				);
 			};
 			name = Debug;
 		};
@@ -602,6 +645,15 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-cookie/ios",
+				);
 			};
 			name = Release;
 		};
@@ -628,6 +680,15 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rnYallahClean-tvOS.app/rnYallahClean-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-cookie/ios",
+				);
 			};
 			name = Debug;
 		};
@@ -654,6 +715,15 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rnYallahClean-tvOS.app/rnYallahClean-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-cookie/ios",
+				);
 			};
 			name = Release;
 		};

@@ -1,52 +1,58 @@
 import React from 'react';
 import {
+  TouchableOpacity,
   StyleSheet,
-  View,
-  ScrollView,
   TouchableWithoutFeedback,
   Keyboard,
 } from 'react-native';
-import Card from '../../shared/card';
-import Thumbnail from '../../shared/thumbnail';
-import HyperLink from '../../shared/hyperlink';
 import {globalStyles} from '../../styles/global';
 import ResidentRegisterForm from '../../components/residentRegisterForm';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 import UserFactoryService from '../../service/UserFactory.js';
 import OrgRegistry from '../../service/OrgRegistry';
 import Web3Service from '../../service/web3.service.js';
 import LocalStorageService from '../../service/core/LocalStorage.service';
+import {
+  Container,
+  Header,
+  Content,
+  Card,
+  CardItem,
+  Text,
+  Body,
+} from 'native-base';
 
-const factoryAddress = '0xf3FB48AA114E03e28b7C2bdFD363014E9D1F56DA';
 const ResidnetRegister = ({navigation}) => {
-  const Url = require('../../assets/images/logo2.jpg');
-
   const handleRegister = async value => {
     const web3Service = new Web3Service();
     // create addresss
     //  await  createAccount( state.password);
     // save to blockchain
-    const address = await web3Service.createAccount(value.password);
-    value.ethAddress = address.address;
-    value.privateKey = address.privateKey;
-    const factory = new UserFactoryService(address.privateKey);
-    const orgRegistryService = new OrgRegistry(address.privateKey);
-    const orgRegistryAddress = await orgRegistryService.userFactory("");
-    console.log(orgRegistryAddress,'orgRegistryAddress');
-    
-    // const address = await web3Service.getAccountByIndex(2);
-    //   value.ethAddress= address;
+    const address = await web3Service.getAccountByIndex(2);
+    value.ethAddress = address;
+    // const address = await web3Service.createAccount(value.password);
+    const txxx = await web3Service.transferEth(address, 10, address, 20000);
+    // value.ethAddress = address.address;
+    // value.privateKey = address.privateKey;
+    value.ethAddress = address;
+    console.log(txxx, 'txxx');
+
+    const factory = new UserFactoryService('address.privateKey');
+    const orgRegistryService = new OrgRegistry('address.privateKey');
+    const orgRegistryAddress = await orgRegistryService.userFactory('');
+    console.log(orgRegistryAddress, 'orgRegistryAddress');
 
     // const factory = new UserFactoryService();
-    console.log(value, 'value');
 
-    const tx = await factory.addResident(
+    const tx = await factory.addEthResident(
       value.ethAddress,
       value.ethAddress,
-      2000000000,
+
+      2500000,
       orgRegistryAddress,
     );
-    //   console.log(tx,'tx');
+    console.log(tx, 'tx');
 
     // const tx=  await factory. addResidentSigned( value.ethAddress,  "0xecE015E844CeB9CE76fd447468C29987fE01d6BE",  "0xeb235ccf4e331a907fb9aa1e7631bc9245936e93e392f41ac5858f521901e875", 2000000000,factoryAddress)
     console.log(tx, 'tx');
@@ -63,26 +69,24 @@ const ResidnetRegister = ({navigation}) => {
   };
 
   return (
-    <ScrollView
-      contentInsetAdjustmentBehavior="automatic"
-      style={globalStyles.scrollView}>
+    <KeyboardAwareScrollView style={globalStyles.scrollView}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={globalStyles.container}>
-          <Thumbnail source={Url} />
-          <Card>
-            {/* <Image source={Url}  /> */}
-
+        <Card style={{flex: 1}}>
+          <CardItem bordered>
             <ResidentRegisterForm register={handleRegister} />
-
-            <HyperLink
-              goToURL={() => navigation.navigate('Auth')}
-              title={'Login?'}
-              style={styles.hyperLink}
-            />
-          </Card>
-        </View>
+          </CardItem>
+          <CardItem footer bordered>
+            <TouchableOpacity>
+              <Text
+                style={styles.hyperLink}
+                onPress={() => navigation.navigate('Auth')}>
+                Have an account?
+              </Text>
+            </TouchableOpacity>
+          </CardItem>
+        </Card>
       </TouchableWithoutFeedback>
-    </ScrollView>
+    </KeyboardAwareScrollView>
   );
 };
 
@@ -90,6 +94,10 @@ export default ResidnetRegister;
 
 const styles = StyleSheet.create({
   hyperLink: {
-    // left:55,
+    fontWeight: 'bold',
+    textAlign: 'center',
+
+    color: '#2ACF3B',
+    letterSpacing: 1,
   },
 });

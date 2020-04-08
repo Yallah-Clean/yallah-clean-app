@@ -1,37 +1,39 @@
 import React from 'react'
-import { StyleSheet, Text,TouchableOpacity, View } from 'react-native'
-import Thumbnail from '../../shared/thumbnail'
-import { globalStyles } from '../../styles/global'
+import { StyleSheet} from 'react-native'
+import { Container, Tab, Tabs } from 'native-base';
+import CollectorRegister from './collectorRegister';
+import ResidnetRegister from './residnetRegister';
 
 const RegisterType = ({navigation}) => {
-    const collectorImage = require('../../assets/images/collector.jpg');
-    const residnetImage = require('../../assets/images/residnet.jpg');
-    const navigate=(value)=>{
-        if(value==1){
-            navigation.navigate("ResidnetRegister")
-        }else if (value==2){
-            navigation.navigate("CollectorRegister")
-        }
-
-    }
     return (
-        <View style={globalStyles.container}>
-            <TouchableOpacity onPress={()=>navigate(1)} style={globalStyles.container}>
-            <Thumbnail source={residnetImage} ></Thumbnail>
+        <Container >
+        <Tabs >
+          <Tab heading="AS A RESEDENT "  activeTextStyle={styles.activeTextStyle} textStyle={styles.textStyle} tabStyle={styles.tabStyle} activeTabStyle={styles.activeTabStyle}>
+              <ResidnetRegister/>
+          </Tab>
+          <Tab heading="AS A COLLECTOR" activeTextStyle={styles.activeTextStyle} textStyle={styles.textStyle} tabStyle={styles.tabStyle} activeTabStyle={styles.activeTabStyle}>
+          <CollectorRegister/>
 
-            </TouchableOpacity>
-            <TouchableOpacity onPress={()=>navigate(2)} style={globalStyles.container}>
-            <Thumbnail source={collectorImage} ></Thumbnail>
-
-            </TouchableOpacity>
-
-        
-    </View>
+          </Tab>
+         
+        </Tabs>
+      </Container>
+ 
     )
 }
 
 export default RegisterType
 
 const styles = StyleSheet.create({
-  
+    tabStyle: { backgroundColor: '#FFFFFF',},
+    textStyle:
+    { color: '#2ACF3B', fontSize: 14 ,lineHeight:16,
+     textAlign:'center',fontFamily:'Roboto', fontWeight:'normal',
+    fontStyle:'normal'},
+    activeTabStyle:
+    { backgroundColor: '#2ACF3B' },
+    activeTextStyle:
+    { color: '#FFFFFF', fontWeight: 'bold',fontSize: 14 },
+
+ 
 })

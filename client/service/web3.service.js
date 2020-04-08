@@ -1,5 +1,6 @@
 import web3 from 'web3';
 const provider = require('./web3.endpoint.js');
+const PrivateKeyProvider = require('truffle-hdwallet-provider');
 
 export default class Web3Service {
   // net = new Web3Net('ws://172.27.150.7:22000');
@@ -26,14 +27,32 @@ export default class Web3Service {
     return this.account;
   }
   async createAccount(passpword) {
-    console.log(this.web3.eth.accounts, 'test');
+    // console.log(this.web3.eth.accounts, 'test');
 
     const newAccount = await this.web3.eth.accounts.create(passpword);
     // const newAccount = await this.web3.eth.personal.newAccount(passpword);
-    console.log(newAccount, 'newAccount');
+    // console.log(newAccount, 'newAccount');
 
     return newAccount;
   }
+  transferEth(receiver, amount, _from=ethAdminAccount, _gas=20000) {
+    // const _web3Provider =  new PrivateKeyProvider(ethPrivateKey, provider.webProvider)
+    const _web3 = new web3(this.web3Provider);
+    return new Promise(async(resolve) => {
+   await _web3.eth.sendTransaction({to:receiver, from:_from, value:_web3.utils.toWei(_web3.utils.toBN(amount).toString(), 'ether')})
+    .on('transactionHash', function(hash){
+        // console.log('tx hash',hash);
+        resolve(hash);
+    })
+    .on('receipt', function(receipt){
+        // console.log('tx receipt',receipt);
+
+    })
+//     .on('confirmation', function(confirmationNumber, receipt){             console.log('tx  confirmationNumberreceipt',{confirmationNumber,receipt});
+// })
+    .on('error', console.error); 
+});
+}
   async getBalanceOf(address) {
     let balance = await this.web3.eth.getBalance(address); //Will give value in.
     // balance = this.web3.toDecimal(balance);

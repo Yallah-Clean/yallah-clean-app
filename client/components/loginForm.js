@@ -49,7 +49,7 @@ export default function LoginForm({login}) {
             <Text style={globalStyles.errorText}>
               {props.touched.password && props.errors.password}
             </Text>
-            <View style={globalStyles.button}>
+            <View   style={globalStyles.button}>
             <FlatButton onPress={props.handleSubmit} text="Login" />
 
             </View>

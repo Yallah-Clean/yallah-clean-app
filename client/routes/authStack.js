@@ -22,7 +22,7 @@ const AuthStack=({navigation})=>{
           <Stack.Screen name="Login" component={Login} options={()=>Options(navigation,"Login")}>
             
           </Stack.Screen>
-          <Stack.Screen name="Type" component={RegisterType} options={()=>Options(navigation,"Select Type")}>
+          <Stack.Screen name="Type" component={RegisterType} options={()=>Options(navigation,"Register")}>
 
           </Stack.Screen>
           <Stack.Screen name="CollectorRegister" component={CollectorRegister} options={()=>Options(navigation,"Register")}>

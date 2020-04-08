@@ -6,12 +6,12 @@ import contractArtifact from '../assets/contracts/OrgRegistry.json';
 const provider = require('./web3.endpoint.js');
 export default class OrgRegistryService {
   constructor(privateKey) {
-    this.web3Provider = new PrivateKeyProvider(
-      privateKey,
-      provider.webProvider,
-    );
+    // this.web3Provider = new PrivateKeyProvider(
+    //   privateKey,
+    //   provider.webProvider,
+    // );
 
-    // this.web3Provider = new Web3.providers.HttpProvider(provider.webProvider);
+    this.web3Provider = new web3.providers.HttpProvider(provider.webProvider);
 
     this.web3 = new web3(this.web3Provider);
 

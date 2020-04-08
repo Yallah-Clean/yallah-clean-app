@@ -10,17 +10,18 @@ export const globalStyles = StyleSheet.create({
     marginVertical: 8,
     lineHeight: 20,
   },
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: '#fff',
-  },
+  // container: {
+  //   flex: 1,
+  //   padding: 20,
+  //   backgroundColor: '#fff',
+  // },
   input: {
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#2ACF3B',
     padding: 10,
+    backgroundColor:'#FFFFFF',
     fontSize: 18,
-    borderRadius: 6,
+    borderRadius:25,
   },
   errorText: {
     color: 'crimson',
@@ -31,6 +32,7 @@ export const globalStyles = StyleSheet.create({
   },
   scrollView: {
     backgroundColor: Colors.lighter,
+    flex:1
   },
   engine: {
     position: 'absolute',
@@ -67,6 +69,50 @@ export const globalStyles = StyleSheet.create({
     padding: 4,
     paddingRight: 12,
     textAlign: 'right',
+  },
+  navigator: {
+    flex: 1,
+    height: 100,
+  },
+  map: {
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    position: 'relative',
+  },
+  containerSplach: {
+    flex: 1,
+    flexDirection: 'column',
+    position: 'relative',
+    backgroundColor:'#2ACF3B'
+  },
+  searchBar: {
+    flex: 1,
+    flexDirection: 'column',
+    position: 'absolute',
+    zIndex: 999,
+    left: 15,
+    height: 40,
+  },
+  searchInput: {
+    flex: 1,
+     borderWidth: 1,
+    padding: 10,
+    opacity: .9,
+     borderRadius: 33,
+    height: 45,
+     borderColor: '#2ACF3B',
+    top: 15,
+    color: '#2ACF3B',
+     flexDirection: 'column',
+  },
+  setPickupButton: {
+    backgroundColor: 'black',
+    color: 'white',
+    padding: 10,
+    marginTop: 2,
   },
 });
 

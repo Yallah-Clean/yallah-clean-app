@@ -1,6 +1,7 @@
 import web3 from 'web3';
 import contract from 'truffle-contract';
 const PrivateKeyProvider = require('truffle-hdwallet-provider');
+// const PrivateKeyProvider = require('truffle-hdwallet-provider');
 
 import contractArtifact from '../assets/contracts/UserFactory.json';
 const provider = require('./web3.endpoint.js');
@@ -18,7 +19,12 @@ export default class UserFactoryService {
     //     mode: 'no-cors',
     //   },
     // );
-    this.web3Provider =  new PrivateKeyProvider(privateKey, provider.webProvider);
+    // this.web3Provider = new PrivateKeyProvider(
+    //   privateKey,
+    //   provider.webProvider,
+    // );
+    this.web3Provider = new web3.providers.HttpProvider(provider.webProvider);
+
     console.log(privateKey, 'private key');
 
     this.web3 = new web3(this.web3Provider);
@@ -43,105 +49,45 @@ export default class UserFactoryService {
   // return data;
 
   // }
-  async renounceOwnership(_from, _gas, contractAddress) {
-    const instance = await this.service
-      .at(contractAddress)
+  async addEthResident(resident, _from, _gas, contractAddress) {
+    console.log('approve');
 
-      .then(async _instance => {
-        return await _instance.renounceOwnership({
-          from: _from,
-          gas: _gas
+    return new Promise(resolve => {
+      //this address is for dispatcher to fix the issue
+      const _web3 = new web3(this.web3.currentProvider);
+
+      const service = new _web3.eth.Contract(
+        contractArtifact.abi,
+        contractAddress,
+      );
+      service.methods
+        .addResident(resident)
+        .send({from: _from, gas: _gas})
+        .once('transactionHash', hash => {
+          resolve(true);
         });
-      })
-
-      .then(res => {
-        return res;
-      })
-
-      .catch(e => {
-        console.log(e);
-      });
-
-    return instance;
+    });
   }
-  async getOwner(contractAddress) {
-    console.log(contractAddress, 'contractAddress');
+  async addEthCollector(collector, _from, _gas, contractAddress) {
+    console.log('approve');
 
-    const instance = await this.service.at(contractAddress);
-    console.log(instance, 'instance');
+    return new Promise(resolve => {
+      //this address is for dispatcher to fix the issue
+      const _web3 = new web3(this.web3.currentProvider);
 
-    const data = await instance.owner.call();
-    console.log(data, 'data');
-
-    return data;
-  }
-  async isOwner(contractAddress) {
-    const instance = await this.service.at(contractAddress);
-
-    const data = await instance.isOwner.call();
-
-    return data;
-  }
-  //   async collectors(){
-
-  //  const instance = await this.service.at(contractAddress);
-
-  //  const data = await instance.collectors.call();
-
-  // return data;
-
-  // }
-  //   async residents(){
-
-  //  const instance = await this.service.at(contractAddress);
-
-  //  const data = await instance.residents.call();
-
-  // return data;
-
-  // }
-  async transferOwnership(newOwner, _from, _gas, contractAddress) {
-    const instance = await this.service
-      .at(contractAddress)
-
-      .then(async _instance => {
-        return await _instance.transferOwnership(newOwner, {
-          from: _from,
-          gas: _gas,
+      const service = new _web3.eth.Contract(
+        contractArtifact.abi,
+        contractAddress,
+      );
+      service.methods
+        .addCollector(collector)
+        .send({from: _from, gas: _gas})
+        .once('transactionHash', hash => {
+          resolve(true);
         });
-      })
-
-      .then(res => {
-        return res;
-      })
-
-      .catch(e => {
-        console.log(e);
-      });
-
-    return instance;
+    });
   }
-  async isNewResident(user, contractAddress) {
-    const instance = await this.service.at(contractAddress);
 
-    const data = await instance.isNewResident.call(user);
-
-    return data;
-  }
-  async isNewCollector(user, contractAddress) {
-    const instance = await this.service.at(contractAddress);
-
-    const data = await instance.isNewCollector.call(user);
-
-    return data;
-  }
-  async isNewBusinessPartners(user, contractAddress) {
-    const instance = await this.service.at(contractAddress);
-
-    const data = await instance.isNewBusinessPartners.call(user);
-
-    return data;
-  }
   async getResident(user, contractAddress) {
     const instance = await this.service.at(contractAddress);
 
@@ -165,16 +111,15 @@ export default class UserFactoryService {
   }
   async addResident(resident, _from, _gas, contractAddress) {
     try {
-      const instance = await this.service.at(contractAddress)
+      const instance = await this.service.at(contractAddress);
 
       const tx = await instance.addResident(resident, {
         from: _from,
-        gas: _gas
+        gas: _gas,
       });
       console.log(tx, 'txxxxxxxx');
 
       return tx;
-
     } catch (error) {
       console.log(error);
 
