@@ -11,6 +11,7 @@ Submistions
 https://github.com/Yallah-Clean/DII-BSIC-team-YC-deliverables
 
 https://etherscan.io/tx/0x37f8d0a54f115ca155a719f8b4b67914324dbf8119662b20ccfff7b4edb905a8
+
  Direct Beneficiaries:  
 ---------
 
