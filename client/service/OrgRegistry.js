@@ -11,7 +11,7 @@ export default class OrgRegistryService {
     //   provider.webProvider,
     // );
 
-    this.web3Provider = new web3.providers.HttpProvider(provider.webProvider);
+    this.web3Provider = new web3.providers.WebsocketProvider(provider.webProvider);
 
     this.web3 = new web3(this.web3Provider);
 
@@ -22,8 +22,9 @@ export default class OrgRegistryService {
   }
   async initContract() {
     this.service = contract(contractArtifact);
+console.log(this.web3.currentProvider,'(this.web3.currentProvider');
 
-    this.service.setProvider(this.web3Provider);
+    this.service.setProvider(this.web3.currentProvider);
   }
 
   // add new org " this should be done though factory contract later on"

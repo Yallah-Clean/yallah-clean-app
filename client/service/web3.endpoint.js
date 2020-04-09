@@ -12,6 +12,7 @@ let RPC_ENDPOINT = 'u0c27rjk0h-u0jpleum6x-rpc.us0-aws.kaleido.io'; // Remove the
 // let nodeUrl = "https://ropsten.infura.io/v3/a30f44f7f6de4a7dbe4c9ad2eea7420e";
 // let nodeUrl = "wss://" + USER + ":" + PASS + "@" + WSS_ENDPOINT;
 let nodeUrl = "ws://localhost:8545";
+// let nodeUrl = "http://127.0.0.1:8545";
 
 module.exports = {
   webProvider: nodeUrl,

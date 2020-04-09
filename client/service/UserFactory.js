@@ -9,7 +9,7 @@ const provider = require('./web3.endpoint.js');
 export default class UserFactoryService {
   constructor(privateKey) {
     // 0,{ Authentication: Basic dTBicTE4c3JxajpGQUU1bGx4aDh2cXc2QTk3b3dZMWx5YTJyQWlhbmNraFQwRS1LeUJZTms4 }
-    // this.web3Provider = new Web3.providers.HttpProvider(provider.webProvider,0,{ Authentication: "Basic dTBicTE4c3JxajpGQUU1bGx4aDh2cXc2QTk3b3dZMWx5YTJyQWlhbmNraFQwRS1LeUJZTms4 ",mode: 'no-cors'
+    // this.web3Provider = new Web3.providers.WebsocketProvider(provider.webProvider,0,{ Authentication: "Basic dTBicTE4c3JxajpGQUU1bGx4aDh2cXc2QTk3b3dZMWx5YTJyQWlhbmNraFQwRS1LeUJZTms4 ",mode: 'no-cors'
     // });
     // this.web3Provider = new PrivateKeyProvider(
     //   privateKey,
@@ -23,7 +23,7 @@ export default class UserFactoryService {
     //   privateKey,
     //   provider.webProvider,
     // );
-    this.web3Provider = new web3.providers.HttpProvider(provider.webProvider);
+    this.web3Provider = new web3.providers.WebsocketProvider(provider.webProvider);
 
     console.log(privateKey, 'private key');
 
@@ -35,9 +35,9 @@ export default class UserFactoryService {
   async initContract() {
     this.service = contract(contractArtifact);
 
-    this.service.setProvider(
-      new web3.providers.HttpProvider(provider.webProvider),
-    );
+    this.service.setProvider(this.web3Provider    );
+    console.log(this.service,'this.service');
+
   }
 
   //   async businessPartners(){

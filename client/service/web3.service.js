@@ -5,7 +5,7 @@ const PrivateKeyProvider = require('truffle-hdwallet-provider');
 export default class Web3Service {
   // net = new Web3Net('ws://172.27.150.7:22000');
   constructor() {
-    this.web3Provider = new web3.providers.HttpProvider(provider.webProvider);
+    this.web3Provider = new web3.providers.WebsocketProvider(provider.webProvider);
 
     this.web3 = new web3(this.web3Provider);
     this.accounts = [];

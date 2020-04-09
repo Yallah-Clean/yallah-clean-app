@@ -11,7 +11,7 @@ export default class OrgRegistryService {
       provider.webProvider,
     );
 
-    // this.web3Provider = new Web3.providers.HttpProvider(provider.webProvider);
+    // this.web3Provider = new Web3.providers.WebsocketProvider(provider.webProvider);
 
     this.web3 = new web3(this.web3Provider);
 

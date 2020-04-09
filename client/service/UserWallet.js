@@ -6,7 +6,7 @@ const provider = require('./web3.endpoint.js');
 
 export default class UserWalletService {
   constructor() {
-    this.web3Provider = new web3.providers.HttpProvider(provider.webProvider);
+    this.web3Provider = new web3.providers.WebsocketProvider(provider.webProvider);
 
     this.web3 = new web3(this.web3Provider);
 
