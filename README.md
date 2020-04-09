@@ -6,6 +6,10 @@ Overview
 ---------
 Yallah clean is a  new innovation model for on-demand service for waste collection cycle based on blockchain via engaging all stakeholders in a trusted, traceable & win-win model.
 
+Submistions
+---------
+https://github.com/Yallah-Clean/DII-BSIC-team-YC-deliverables
+
 
  Direct Beneficiaries:  
 ---------
